@@ -130,6 +130,7 @@ const addServedCount = (orders) => {
     return orders;
 }
 
+// validate orders and add served count
 const setupOrders = (orders) => {
     checkOrders(orders);
     orders = addServedCount(orders);
