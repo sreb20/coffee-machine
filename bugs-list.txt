@@ -1,0 +1,16 @@
+Bugs:
+
+1. There are 2 issues of indexing in the processOrders function:
+    - The loop for (var i = 1; i < orders.length; i++) starts from 1 so it skips the first order here, it should start from 0 to process all orders correctly
+    - The loop for (var j = 0; j <= order.quantity; j++) iterates one time too many. It should use < instead of <= to avoid over-processing orders.
+2. The function processOrders is executed 2 times without tracking previously processed orders. It should track which orders have been processed to avoid re-preparing all orders each time.
+3. Hardcoded values for ingredient quantities makes the code less flexible and harder to maintain
+4. There is a lack of Error Handling, there are only console logs
+5. Issues in refill Function:
+    - It doesn't validate if the amount to refill is greater than 0
+    - There is no check for a maximum limit on ingredients, which could result in unrealistic inventory levels. 
+    - There is no feedback to the user about the successful refill. 
+6. The code assumes that all orders provided are valid . If an order is malformed, it could cause unexpected behavior so we need to check the format and the content of the orders.
+7. There are no test cases to ensure the functions work correctly in different scenarios
+8. There is a lot of redundant code and the code is very complex. We can simplify the code and limit errors during future modifications.
+
